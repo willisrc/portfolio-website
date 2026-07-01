@@ -1,11 +1,16 @@
 {
     "name": "willCroninCV",
     "version": "1.0.0",
+    "type": "module",
     "scripts": {
         "start": "node server.js"
     },
     "dependencies": {
-        "express": "4.13.3"
+        "@ai-sdk/anthropic": "^3.0.83",
+        "@anthropic-ai/sdk": "^0.104.1",
+        "ai": "^6.0.202",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2"
     },
     "author": "William Cronin",
     "license": "ISC"

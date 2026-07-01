@@ -1,17 +1,28 @@
-var express = require('express');
-var app = express();
+import "dotenv/config.js";
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import { chatHandler } from "./html5up-dimension/routes/chats.js";
 
-//set port
-var port = process.env.PORT || 8080
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.use(express.static(__dirname + "/public"));
+const app = express();
+const port = process.env.PORT || 9090;
 
-//routes
+// Log startup info
+console.log("Starting server...");
+console.log("ANTHROPIC_API_KEY is set:", !!process.env.ANTHROPIC_API_KEY);
+console.log("Current directory:", process.cwd());
 
-app.get("/", function(req, res){
-    res.render("index");
-})
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "html5up-dimension")));
+app.post("/api/chat", chatHandler);
 
-app.listen(port, function() {
-      console.log("app running");
-})
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "html5up-dimension", "index.html"));
+});
+
+app.listen(port, () => {
+  console.log(`app running on http://localhost:${port}`);
+});
