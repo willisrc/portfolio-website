@@ -2,6 +2,14 @@ import Anthropic from "@anthropic-ai/sdk";
 import fs from "fs";
 import path from "path";
 
+export function createAnthropicClient(apiKey = process.env.ANTHROPIC_API_KEY?.trim()) {
+  if (!apiKey) {
+    throw new Error("ANTHROPIC_API_KEY is not configured");
+  }
+
+  return new Anthropic({ apiKey });
+}
+
 function getSystemPrompt() {
   try {
     const resume = fs.readFileSync(
@@ -29,12 +37,8 @@ export async function chatHandler(req, res) {
     return res.status(400).json({ error: "messages array required" });
   }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return res.status(500).json({ error: "ANTHROPIC_API_KEY is not configured" });
-  }
-
   try {
-    const client = new Anthropic();
+    const client = createAnthropicClient();
 
     res.setHeader("Content-Type", "text/event-stream");
     res.setHeader("Cache-Control", "no-cache");
@@ -66,6 +70,7 @@ export async function chatHandler(req, res) {
       type: error.type,
       fullError: error,
     });
+    const isAuthError = error.status === 401 || error.type === "authentication_error";
     if (!res.headersSent) {
       res.status(500).json({ 
         error: error.message || "Failed to process chat request",
