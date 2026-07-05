@@ -16,7 +16,6 @@ const port = process.env.PORT || 9090;
 console.log("Starting server...");
 const anthropicApiKey = process.env.ANTHROPIC_API_KEY?.trim();
 console.log("ANTHROPIC_API_KEY is set:", Boolean(anthropicApiKey));
-console.log("ANTHROPIC_API_KEY source:", process.env.ANTHROPIC_API_KEY ? "runtime env" : "missing");
 console.log("Current directory:", process.cwd());
 
 app.use(express.json());

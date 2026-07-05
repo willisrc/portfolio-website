@@ -2,7 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import fs from "fs";
 import path from "path";
 
-export function createAnthropicClient(apiKey = process.env.ANTHROPIC_API_KEY?.trim()) {
+export function createAnthropicClient(apiKey = process.env.ANTHROPIC_API_KEY) {
   if (!apiKey) {
     throw new Error("ANTHROPIC_API_KEY is not configured");
   }
@@ -70,7 +70,6 @@ export async function chatHandler(req, res) {
       type: error.type,
       fullError: error,
     });
-    const isAuthError = error.status === 401 || error.type === "authentication_error";
     if (!res.headersSent) {
       res.status(500).json({ 
         error: error.message || "Failed to process chat request",
