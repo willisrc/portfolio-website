@@ -1,12 +1,12 @@
-# William R. Cronin
+## William R. Cronin
 
 Mount Laurel, NJ 08054  
 (732) 669-2210  
 william.r.cronin@gmail.com
 
 ---
-
 # Education
+---
 
 ## Georgia Institute of Technology — Atlanta, GA
 **Master of Science, Computer Science**  
@@ -25,8 +25,8 @@ william.r.cronin@gmail.com
 - Dean's List
 
 ---
-
 # Technical Skills
+---
 
 ### Languages
 - Python
@@ -48,8 +48,8 @@ william.r.cronin@gmail.com
 - VMware
 
 ---
-
 # Professional Experience
+---
 
 ## Innovative Defense Technologies — Software Engineer
 **December 2021 – Present**
@@ -74,8 +74,8 @@ william.r.cronin@gmail.com
 - Refurbished a radar image classifier using image processing techniques to reduce noise and improve accuracy.
 
 ---
-
 # Selected Technical Projects
+---
 
 ## Trading Algorithm (Machine Learning for Trading)
 **November 2023**
@@ -99,8 +99,8 @@ william.r.cronin@gmail.com
 - Collaborated using Git-based version control workflows.
 
 ---
-
 # Leadership
+---
 
 ## Rowan IEEE Executive Board — Vice President
 **January 2017 – December 2019**
