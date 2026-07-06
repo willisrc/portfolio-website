@@ -397,5 +397,26 @@
 					$window.on('load', function() {
 						$main._show(location.hash.substr(1), true);
 					});
+		// Load resume markdown into the resume section.
+			$(function() {
+				var $resumeContent = $('#resume-content');
 
+				if ($resumeContent.length === 0 || typeof window.marked === 'undefined')
+					return;
+
+				fetch('data/resume.md')
+					.then(function(response) {
+						if (!response.ok)
+							throw new Error('Unable to load resume file');
+
+						return response.text();
+					})
+					.then(function(text) {
+						$resumeContent.html(window.marked.parse(text));
+					})
+					.catch(function(error) {
+						$resumeContent.html('<p>Unable to load the resume right now.</p>');
+						console.error(error);
+					});
+			});
 })(jQuery);
