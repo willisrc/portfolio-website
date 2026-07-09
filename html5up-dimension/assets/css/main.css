@@ -995,6 +995,19 @@ input, select, textarea {
 			table.alt tfoot {
 				border-top: 0;
 			}
+	
+	.button-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+		outline: 0;
+		border-radius: 4px;
+		/* border: solid 1px #ffffff; */
+		margin-bottom: 2rem;
+		padding: 1.5em;
+	}
 
 /* Button */
 
@@ -1081,6 +1094,7 @@ input, select, textarea {
 			background-color: #ffffff;
 			color: #1b1f22 !important;
 			font-weight: 600;
+
 		}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
