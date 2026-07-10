@@ -13,7 +13,7 @@ export function createAnthropicClient(apiKey = process.env.ANTHROPIC_API_KEY) {
 function getSystemPrompt() {
   try {
     const resume = fs.readFileSync(
-      path.join(process.cwd(), "html5up-dimension", "data", "resume.md"),
+      path.join(process.cwd(), "public", "resume", "resume.md"),
       "utf-8"
     );
 

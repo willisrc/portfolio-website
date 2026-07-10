@@ -404,7 +404,7 @@
 				if ($resumeContent.length === 0 || typeof window.marked === 'undefined')
 					return;
 
-				fetch('data/resume.md')
+				fetch('resume/resume.md')
 					.then(function(response) {
 						if (!response.ok)
 							throw new Error('Unable to load resume file');
