@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import { chatHandler } from "./html5up-dimension/routes/chats.js";
+import { chatHandler } from "./public/routes/chats.js";
 
 dotenv.config();
 
@@ -19,11 +19,11 @@ console.log("ANTHROPIC_API_KEY is set:", Boolean(anthropicApiKey));
 console.log("Current directory:", process.cwd());
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "html5up-dimension")));
+app.use(express.static(path.join(__dirname, "public")));
 app.post("/api/chat", chatHandler);
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "html5up-dimension", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(port, () => {
